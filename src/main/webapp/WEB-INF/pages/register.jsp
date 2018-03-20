@@ -19,7 +19,7 @@
 	</div>
 	<div class="form-group col-lg-12">
 	<form:label path="password" class="control-label col-lg-8">Password</form:label>
-	<form:input path="password"  placeholder="Enter Password" class="form-control" />
+	<form:input path="password" type="password" placeholder="Enter Password" class="form-control" />
 	</div>
 	<div class="form-group col-lg-12">
 	<form:label path="email" class="control-label col-lg-8">Email</form:label>

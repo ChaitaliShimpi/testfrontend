@@ -14,14 +14,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.DAO.userDAO;
+import com.niit.DAO.UserDAO;
 import com.niit.model.User;
 
 @Controller
-public class registrationcontroller {
+public class RegistrationController {
 
 	@Autowired
-	userDAO userDAO;
+	UserDAO userDAO;
 
 	@RequestMapping("/register")
 	private String Registration(Model m) {

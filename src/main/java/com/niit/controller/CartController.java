@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.DAO.*;
-import com.niit.model.cart;
-import com.niit.model.product;
+import com.niit.model.Cart;
+import com.niit.model.Product;
 @Controller
-public class cartcontroller {
+public class CartController {
 	
 		@Autowired
-		private cartDAO cartDAO;
+		private CartDAO cartDAO;
 		@Autowired
-		private productDAO productDAO;
+		private ProductDAO productDAO;
 		@Autowired
-		private orderDAO orderDAO;
+		private OrderDAO orderDAO;
 
 		@RequestMapping(value = { "AddToCart" })
 		public String addToCart(@RequestParam("quantity") int quantity, @RequestParam("prodId") int prodId, Model m,
 				HttpSession hs) {
-			product prod = productDAO.getOneproduct(prodId);
+			Product prod = productDAO.getOneProduct(prodId);
 			double subtotal = (prod.getPrice()) * (quantity);
 			String username = (String) hs.getAttribute("username");
-			cart ca = new cart();
+			Cart ca = new Cart();
 			ca.setPaymentStatus("np");
 			ca.setProdId(prodId);
 			ca.setQuantity(quantity);
@@ -47,8 +47,8 @@ public class cartcontroller {
 		public String showCart(Model m, HttpSession hs) {
 			double price = 0, quantity = 0;
 			String username = (String) hs.getAttribute("username");
-			List<cart> cartItems = cartDAO.getAllUnpaidItem(username);
-			for (cart cartItem : cartItems) {
+			List<Cart> cartItems = cartDAO.getAllUnpaidItem(username);
+			for (Cart cartItem : cartItems) {
 				price = price + cartItem.getSubtotal();
 				quantity = quantity + cartItem.getQuantity();
 			}
@@ -60,9 +60,9 @@ public class cartcontroller {
 		}
 
 		public LinkedHashMap<Integer, String> listProducts() {
-			List<product> listProducts = productDAO.getallproduct();
+			List<Product> listProducts = productDAO.getAllProduct();
 			LinkedHashMap<Integer, String> prodlist = new LinkedHashMap<Integer, String>();
-			for (product product : listProducts) {
+			for (Product product : listProducts) {
 				prodlist.put(product.getProdId(), product.getProdName());
 			}
 			return prodlist;
@@ -73,8 +73,8 @@ public class cartcontroller {
 			cartDAO.deleteCart(cartId);
 			double price = 0, quantity = 0;
 			String username = (String) hs.getAttribute("username");
-			List<cart> cartItems = cartDAO.getAllUnpaidItem(username);
-			for (cart cart : cartItems) {
+			List<Cart> cartItems = cartDAO.getAllUnpaidItem(username);
+			for (Cart cart : cartItems) {
 				price = price + cart.getSubtotal();
 				quantity = quantity + cart.getQuantity();
 			}
