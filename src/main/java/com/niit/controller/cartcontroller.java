@@ -69,9 +69,8 @@ public class cartcontroller {
 		}
 
 		@RequestMapping("DeleteCartItem{cartId}")
-		public String deletecartitem(@PathVariable("cartId") int cartItemId,Model m, HttpSession hs) {
-			cartDAO.deleteCart(cartItemId);
-			m.addAttribute("delci", "Cart Item Deleted!");
+		public String deletecartitem(@PathVariable("cartId") int cartId,Model m, HttpSession hs) {
+			cartDAO.deleteCart(cartId);
 			double price = 0, quantity = 0;
 			String username = (String) hs.getAttribute("username");
 			List<cart> cartItems = cartDAO.getAllUnpaidItem(username);
@@ -83,6 +82,6 @@ public class cartcontroller {
 			m.addAttribute("prodItems", listProducts());
 			m.addAttribute("price", price);
 			m.addAttribute("quantity", (int) quantity);
-			return "cart";
+			return "redirect:cart";
 		}
 }

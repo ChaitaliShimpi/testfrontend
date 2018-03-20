@@ -18,70 +18,68 @@ import com.niit.DAO.userDAO;
 import com.niit.model.User;
 
 @Controller
-	public class registrationcontroller {
+public class registrationcontroller {
 
-		@Autowired
-		userDAO userDAO;
+	@Autowired
+	userDAO userDAO;
 
-		@RequestMapping("/register")
-		private String Registration(Model m) {
-			m.addAttribute("user", new User());
-			return ("register");
-		}
+	@RequestMapping("/register")
+	private String Registration(Model m) {
+		m.addAttribute("user", new User());
+		return ("register");
+	}
 
 	@RequestMapping("saveUser")
-		private String SaveUser(@ModelAttribute("User") User u, Model m) {
-			u.setRole("ROLE_USER");
-			u.setEnabled(true);
-			userDAO.saveUser(u);
-			return ("home");
+	private String SaveUser(@ModelAttribute("User") User u, Model m) {
+		u.setRole("ROLE_USER");
+		u.setEnabled(true);
+		userDAO.saveUser(u);
+		return ("home");
 
-		}
-	
+	}
+
 	@RequestMapping("/login")
-	private String login(){
-		
+	private String login() {
+
 		return ("login");
 	}
 
-		@RequestMapping("/login_successful")
-		private String HomePage(HttpSession session, Model m) {
-			
-			String page = "";
-			boolean loggedIn = false;
-			
-			SecurityContext securityContext = SecurityContextHolder.getContext();
-			Authentication authentication = securityContext.getAuthentication();
-			
-			String username = authentication.getName();
-			
-			Collection<GrantedAuthority> roles =(Collection<GrantedAuthority>) authentication.getAuthorities();
-			for(GrantedAuthority role:roles) {
-				session.setAttribute("role", role);
-				
-				if(role.getAuthority().equals("ROLE_ADMIN")) {
-					loggedIn = true;
-					session.setAttribute("loggedIn", loggedIn);
-					session.setAttribute("username", username);
-					page="home";
-					
-				}
-				else {
-					loggedIn = true;
-					session.setAttribute("loggedIn", loggedIn);
-					session.setAttribute("username", username);
-					page="home";
-				}
+	@RequestMapping("/login_successful")
+	private String HomePage(HttpSession session, Model m) {
+
+		String page = "";
+		boolean loggedIn = false;
+
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		Authentication authentication = securityContext.getAuthentication();
+
+		String username = authentication.getName();
+
+		Collection<GrantedAuthority> roles = (Collection<GrantedAuthority>) authentication.getAuthorities();
+		for (GrantedAuthority role : roles) {
+			session.setAttribute("role", role);
+
+			if (role.getAuthority().equals("ROLE_ADMIN")) {
+				loggedIn = true;
+				session.setAttribute("loggedIn", loggedIn);
+				session.setAttribute("username", username);
+				page = "home";
+
+			} else {
+				loggedIn = true;
+				session.setAttribute("loggedIn", loggedIn);
+				session.setAttribute("username", username);
+				page = "home";
 			}
-
-
-			return page;
 		}
 
-		@RequestMapping("/login_failure")
-		private String showError(Model m) {
-			m.addAttribute("message","Please check your login details!!!!!!!!");
-
-			return "login";
-		}
+		return page;
 	}
+
+	@RequestMapping("/login_failure")
+	private String showError(Model m) {
+		m.addAttribute("message", "Please check your login details!!!!!!!!");
+
+		return "login";
+	}
+}

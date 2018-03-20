@@ -24,7 +24,8 @@
 </style>
 </head>
 <body>
-	<b> <nav class="navbar navbar-expand-md bg-danger navbar-light-danger">
+	<b> <nav
+			class="navbar navbar-expand-md bg-danger navbar-light-danger">
 		<a class="navbar-brand" href="home">The faceport</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -35,14 +36,29 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="register">Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="product">Product</a></li>
-				<li class="nav-item"><a class="nav-link" href="supplier">Supplier</a></li>
-				<li class="nav-item"><a class="nav-link" href="category">Category</a></li>
-				<li class="nav-item"><a class="nav-link" href="cart">Cart</a></li>
-				<li class="nav-item"><a class="nav-link" href="ProductDisplay">ProductDisplay</a></li>
-				<li class="nav-item"><a class="nav link" href="logout">Logout</a></li>
+				<c:choose>
+					<c:when test="${role=='ROLE_USER'}">
+						<li class="nav-item"><a class="nav-link" href="cart">Cart</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="ProductDisplay">ProductDisplay</a></li>
+					</c:when>
+					<c:when test="${role=='ROLE_ADMIN'}">
+						<li class="nav-item"><a class="nav-link" href="product">Product</a></li>
+						<li class="nav-item"><a class="nav-link" href="supplier">Supplier</a></li>
+						<li class="nav-item"><a class="nav-link" href="category">Category</a></li>
+					</c:when>
+				</c:choose>
+				<c:choose>
+					<c:when test="${loggedIn==true}">
+						<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+					</c:otherwise>
+				</c:choose>
+				<c:if test="${empty loggedIn}">
+					<li class="nav-item"><a class="nav-link" href="register">Register</a></li>
+				</c:if>
 			</ul>
 		</div>
 		</nav></b>
