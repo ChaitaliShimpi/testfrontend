@@ -12,7 +12,8 @@
 				<input type="text" name="prodId"
 						value="${proditem.prodId}" readonly="readonly" /><br />
 					${proditem.prodName}<br /> ${proditem.prodDesc}<br />
-					${proditem.price}<br /> <select name="quantity">
+					${proditem.price}<br /> 
+					<select name="quantity">
 						<option value="1">--Select Quantity--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>

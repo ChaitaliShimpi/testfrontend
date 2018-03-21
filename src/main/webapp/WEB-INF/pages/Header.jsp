@@ -26,7 +26,7 @@
 <body>
 	<b> <nav
 			class="navbar navbar-expand-md bg-secondary navbar-dark">
-		<a class="navbar-brand" href="home">The faceport</a>
+		<a class="navbar-brand" href="home">The Faceport</a>
 
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
