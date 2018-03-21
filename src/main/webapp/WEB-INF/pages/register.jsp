@@ -3,11 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<style>
-.jumbotron {
-	background-color: tomato;
-}
-</style>
+
 <body>
 <center><h2>Register</h2></center>
 <div class="container">

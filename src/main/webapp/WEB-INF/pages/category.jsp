@@ -2,11 +2,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<style>
-.jumbotron {
-	background-color: tomato;
-}
-</style>
+
+
 <body><center><h2>Category</h2></center>
 <form:form method="post" modelAttribute="category" action="savecategory">
 	<div class="container">

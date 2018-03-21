@@ -1,9 +1,5 @@
 <jsp:include page="Header.jsp"></jsp:include>
-<style>
-.jumbotron {
-	background-color: tomato;
-}
-</style>
+
 
 <body>
 	<form action="${pageContext.request.contextPath}/AddToCart"

@@ -47,13 +47,13 @@ public class PageController {
 	}
 
 	@RequestMapping(value = { "/home" })
-	public String homecontroller() {
+	public String homeController() {
 		return "home";
 
 	}
 
 	@RequestMapping(value = { "/" })
-	public String indexcontroller() {
+	public String indexController() {
 		return "index";
 	}
 

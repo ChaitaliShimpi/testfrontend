@@ -1,11 +1,7 @@
 <jsp:include page="Header.jsp"></jsp:include>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<style>
-.jumbotron {
-	background-color: tomato;
-}
-</style>
+
 <body>
 <div class="container">
 <center><h2>Products List</h2></center>
@@ -21,7 +17,7 @@
 				</thead>
 		<c:forEach items="${prodlist}" var="proditem">
 			<tr>
-				<td>${proditem.prodId}</td>
+				<td><b>${proditem.prodId}</b></td>
 				<td>
 				<a href="ProductDescription${proditem.prodId}"> 
 				${proditem.prodName}<br/><br/>

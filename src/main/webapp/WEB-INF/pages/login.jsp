@@ -1,13 +1,5 @@
 <jsp:include page="Header.jsp"></jsp:include>
-<head>
-<style>
-.jumbotron {
-	height: 100%;
-	width: 100%;
-	background-color: tomato;
-}
-</style>
-</head>
+
 <body>
 	<form action="perform_login" method="post">
 		<center>
