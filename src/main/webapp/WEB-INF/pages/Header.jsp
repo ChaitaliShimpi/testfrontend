@@ -16,12 +16,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<style>
-.carousel-inner img {
-	width: 100%;
-	height: 100%;
-}
-</style>
+
 </head>
 <body>
 	<b> <nav
@@ -54,6 +49,7 @@
 				<c:if test="${empty loggedIn}">
 					<li class="nav-item"><a class="nav-link" href="register">Register</a></li>
 				</c:if>
+				
 			</ul>
 		</div>
 		</nav></b>

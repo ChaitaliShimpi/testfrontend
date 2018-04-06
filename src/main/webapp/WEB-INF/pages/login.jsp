@@ -1,5 +1,4 @@
 <jsp:include page="Header.jsp"></jsp:include>
-
 <body>
 	<form action="perform_login" method="post">
 		<center>
@@ -13,11 +12,11 @@
 
 					<div class="form-group col-md-8">
 						<label>User Name:</label> <input type="text" name="username"
-							placeholder="Enter Username" class="form-control" />
+							id="username" placeholder="Enter Username" class="form-control" />
 					</div>
 					<div class="form-group col-md-8">
 						<label>Password</label> <input type="password" name="password"
-							placeholder="Enter Password" class="form-control" />
+							id="pswd" placeholder="Enter Password" class="form-control" />
 					</div>
 					<div class="col-sm-12">
 						<input type="submit" value="login" /><br />

@@ -51,8 +51,7 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = { "ConfirmPayment" })
-	public String confirmPayment(@RequestParam("paymode") String paymode, @RequestParam("pincode") int pincode,
-			@RequestParam("address") String address, @RequestParam("state") String state,
+	public String confirmPayment(@RequestParam("paymode") String paymode, @RequestParam("pincode") int pincode, @RequestParam("state") String state,
 			@RequestParam("shpAddr") String shpAddr, Model m, HttpSession hs) {
 		double price = 0;
 		String username = (String) hs.getAttribute("username");
@@ -66,7 +65,6 @@ public class OrderController {
 		o.setUsername(username);
 		o.setDeliveryStatus("Pending");
 		o.setOrderDate(new Date());
-		o.setAddress(address);
 		o.setPincode(pincode);
 		o.setState(state);
 		o.setShippingAddress(shpAddr);
