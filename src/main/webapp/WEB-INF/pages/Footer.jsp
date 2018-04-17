@@ -17,7 +17,7 @@
 <body><br><br>
 <div class="footer">
 <p> Thefaceport@gmail.com </p>
-<p><a href="About_us" style="color:white">About Us</a></p>
+<p><a href="About_us" style="color:white">About Us </a></p>
 </div>
 </body>
 </html>

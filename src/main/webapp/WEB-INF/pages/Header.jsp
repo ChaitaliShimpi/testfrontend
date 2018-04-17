@@ -19,11 +19,8 @@
 
 </head>
 <body>
-	<b> <nav
-			class="navbar navbar-expand-md bg-secondary navbar-dark">
-		<a class="navbar-brand" href="home">The Faceport</a>
-
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	<b> <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+	<a class="navbar-brand" href="home">The Faceport</a>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
 				<c:choose>
@@ -53,4 +50,9 @@
 			</ul>
 		</div>
 		</nav></b>
-	<br>
+	<% String username=(String) session.getAttribute("username");
+	if(username!=null){
+		out.print("<div class='col-lg-12 bg-warning'>");
+		out.print("welcome: "+ username);
+		out.print("</div>");
+	}	%>

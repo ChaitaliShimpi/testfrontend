@@ -35,18 +35,21 @@
 				</tr>
 			</table>
 			<form action="ConfirmPayment" method="post">
-				<label><input type="radio" name="paymode" value="cod">
+				<label><input type="radio" name="paymode" value="cod" required>
 					Cash on Delivery</label> 
 					<label><input type="radio" name="paymode"
-					value="cc"> Credit Card</label> 
+					value="cc" required> Credit Card</label> 
 					<label><input type="radio"
-					name="paymode" value="nb"> Net Banking</label><br />
+					name="paymode" value="nb" required> Net Banking</label><br />
 					
-					<label>State:</label><br/><input type="text" name="state"><br/><br/>
+					<label>State:</label><br/>
+					<input type="text" name="state"  placeholder="State" required><br/><br/>
 					
-					<label>Pincode:</label><br/><input type="text" name="pincode" maxlength="6"><br/>
+					<label>Pincode:</label><br/>
+					<input type="text" name="pincode" maxlength="6"  placeholder="Pincode" required><br/>
 					<br/>
-					<label>Address:</label><br/><textarea name="shpAddr" placeholder="Enter Shipping Address"></textarea>
+					<label>Address:</label><br/>
+					<textarea name="shpAddr" placeholder="Enter Shipping Address" required></textarea>
 					<br />
 					<br />
 				

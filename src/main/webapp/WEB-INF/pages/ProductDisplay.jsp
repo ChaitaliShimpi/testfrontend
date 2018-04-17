@@ -21,8 +21,8 @@
 				<td>
 				<a href="ProductDescription${proditem.prodId}"> 
 				${proditem.prodName}<br/><br/>
-				<img src="resources/productimage/${proditem.prodId}.jpg" width="50"
-						height="50" /></a></td>
+				<img src="resources/productimage/${proditem.prodId}.jpg" width="200"
+						height="200" /></a></td>
 				<td>${proditem.prodDesc}</td>
 				<td>${proditem.catid}</td>
 				<td>${proditem.suppid}</td>

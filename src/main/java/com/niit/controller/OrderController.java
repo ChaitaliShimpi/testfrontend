@@ -30,6 +30,12 @@ public class OrderController {
 		String username = (String) hs.getAttribute("username");
 		List<Cart> cartItems = cartDAO.getAllUnpaidItem(username);
 		for (Cart cartItem : cartItems) {
+			int subquan=cartItem.getQuantity();
+			Product p=productDAO.getOneProduct(cartItem.getProdId());	
+			int temp=p.getQuantity()-subquan;
+			p.setQuantity(temp);
+			productDAO.addProduct(p);
+			
 			price = price + cartItem.getSubtotal();
 			quantity = quantity + cartItem.getQuantity();
 		}
